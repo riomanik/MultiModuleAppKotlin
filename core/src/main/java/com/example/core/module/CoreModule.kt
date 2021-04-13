@@ -7,21 +7,19 @@ import dagger.Provides
 import javax.inject.Named
 import javax.inject.Singleton
 
-@Module(includes = [NetworkModule::class, DatabaseModule::class, SharedPrefModule::class])
+@Module(includes = [NetworkModule::class, SharedPrefModule::class, DatabaseModule::class])
 class CoreModule(
     private val app: Application,
-    private val databaseName: String,
     private val apiUrl: String
 ) {
 
     @Singleton
     @Provides
-    fun provideContext(): Context = app.applicationContext
+    fun provideContext(): Context = app
 
     @Singleton
     @Provides
-    @Named("APP_DATABASE_NAME")
-    fun provideDatabaseName(): String = databaseName
+    fun provideApplication(): Application = app
 
     @Singleton
     @Provides

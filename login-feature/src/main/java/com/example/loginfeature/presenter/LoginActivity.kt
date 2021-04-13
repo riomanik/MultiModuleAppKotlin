@@ -7,7 +7,8 @@ import com.example.core.di.InjectUtils
 import com.example.loginfeature.R
 import com.example.loginfeature.di.DaggerLoginFeatureComponent
 import com.example.loginfeature.di.LoginFeatureComponent
-import com.example.loginfeature.domain.Login
+import com.example.core_entity.login.Login
+import com.facebook.stetho.Stetho
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity: BaseViewModelActivity<LoginViewModel>() {
@@ -22,6 +23,7 @@ class LoginActivity: BaseViewModelActivity<LoginViewModel>() {
             .coreComponent(InjectUtils.provideCoreComponent(applicationContext))
             .build()
         component.inject(this)
+        Stetho.initializeWithDefaults(this)
         btnGetUserInfo.setOnClickListener{
             viewModel.getUserInfo()
         }
@@ -29,7 +31,12 @@ class LoginActivity: BaseViewModelActivity<LoginViewModel>() {
             viewModel.getUserIdSharePref()
         }
         btnSaveToDb.setOnClickListener {
-            viewModel.saveDataToDb(Login(1, "Junifer"))
+            viewModel.saveDataToDb(
+                Login(
+                    1,
+                    "Junifer"
+                )
+            )
         }
         btnGetFromDb.setOnClickListener {
             viewModel.getDataFromDb()
@@ -45,7 +52,7 @@ class LoginActivity: BaseViewModelActivity<LoginViewModel>() {
             tvUserIdPref.text = it
         })
         viewModel.loginDataFromDbLiveData.observe(this, SafeObserver{
-            tvDataFromDb.text = it.first().username
+            tvDataFromDb.text = it.username
         })
     }
 

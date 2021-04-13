@@ -1,10 +1,9 @@
-package com.example.loginfeature.data
+package com.example.core_entity.login
 
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
-import com.example.core.base.BaseDao
-import com.example.loginfeature.domain.Login
+import com.example.core_entity.BaseDao
 import io.reactivex.Maybe
 import io.reactivex.Single
 

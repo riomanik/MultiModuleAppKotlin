@@ -1,13 +1,12 @@
 package com.example.loginfeature.presenter
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.core.base.BaseViewModel
 import com.example.core.common.customSubscribe
 import com.example.loginfeature.data.ExampleResponse
 import com.example.loginfeature.domain.GetSharePrefIdUseCase
-import com.example.loginfeature.domain.Login
+import com.example.core_entity.login.Login
 import com.example.loginfeature.domain.LoginDbUseCase
 import com.example.loginfeature.domain.LoginUseCase
 
@@ -23,8 +22,8 @@ class LoginViewModel(
     private val userIdPrefMutableLiveData = MutableLiveData<String>()
     val userIdPrefLiveData: LiveData<String> get() = userIdPrefMutableLiveData
 
-    private val loginDataFromDbMutableLiveData = MutableLiveData<List<Login>>()
-    val loginDataFromDbLiveData: LiveData<List<Login>> get() = loginDataFromDbMutableLiveData
+    private val loginDataFromDbMutableLiveData = MutableLiveData<Login>()
+    val loginDataFromDbLiveData: LiveData<Login> get() = loginDataFromDbMutableLiveData
 
     fun getUserInfo() {
         getUserInfoUseCase.execute().subscribe { value ->

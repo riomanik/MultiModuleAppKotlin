@@ -5,6 +5,7 @@ import com.example.core.di.CoreComponent
 import com.example.core.di.CoreComponentProvider
 import com.example.core.di.DaggerCoreComponent
 import com.example.core.module.CoreModule
+import com.facebook.stetho.Stetho
 
 class MyApplication : Application(), CoreComponentProvider {
 
@@ -18,12 +19,12 @@ class MyApplication : Application(), CoreComponentProvider {
             .coreModule(
                 CoreModule(
                     this,
-                    BuildConfig.DATABASE_NAME,
                     BuildConfig.API_BASE_URL
                 )
             )
             .build()
         coreComponent.inject(this)
+        Stetho.initializeWithDefaults(this)
     }
 
     override fun provideCoreComponent(): CoreComponent {

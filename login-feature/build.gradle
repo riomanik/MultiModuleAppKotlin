@@ -81,7 +81,10 @@ dependencies {
     implementation "com.jakewharton.rxbinding2:rxbinding-support-v4:2.1.1"
 
 
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0"
+
     implementation "com.facebook.stetho:stetho:1.5.0"
 
     implementation project(':core')
+    implementation project(':core-entity')
 }

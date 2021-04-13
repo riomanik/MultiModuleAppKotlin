@@ -15,8 +15,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField 'int', 'DATABASE_VERSION', '1'
-        buildConfigField 'String', 'DATABASE_NAME', '"lion_parcel_driver_database"'
         buildConfigField 'String', 'API_BASE_URL', '"https://jsonplaceholder.typicode.com/"'
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -49,6 +47,8 @@ dependencies {
 
     implementation "com.google.dagger:dagger:2.27"
     kapt "com.google.dagger:dagger-compiler:2.27"
+
+    implementation "com.facebook.stetho:stetho:1.5.0"
 
     implementation project(':core')
     implementation project(':login-feature')

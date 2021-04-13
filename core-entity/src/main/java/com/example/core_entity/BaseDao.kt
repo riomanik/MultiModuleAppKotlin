@@ -1,10 +1,9 @@
-package com.example.core.base
+package com.example.core_entity
 
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Update
-import io.reactivex.Maybe
 import io.reactivex.Single
 
 interface BaseDao<T> {

@@ -1,8 +1,8 @@
 package com.example.loginfeature.data
 
-import android.util.Log
 import com.example.core.common.SharedPrefs
-import com.example.loginfeature.domain.Login
+import com.example.core_entity.login.Login
+import com.example.core_entity.login.LoginDao
 import com.example.loginfeature.domain.LoginRepository
 import io.reactivex.Completable
 import io.reactivex.Single
@@ -15,7 +15,9 @@ class LoginDataRepository @Inject constructor(
 ): LoginRepository {
 
     override fun getUserInfo(): Single<ExampleResponse> {
-        return loginApi.getUserInfo()
+        return loginApi.getUserInfo().doOnSuccess {
+            loginDao.insert(Login(2, "Junifer2"))
+        }
     }
 
     override fun getUserIdPref(): Single<String> {
@@ -23,13 +25,12 @@ class LoginDataRepository @Inject constructor(
     }
 
     override fun saveDataToDb(login: Login): Completable {
-        Log.i("USERNAMENNYA", login.username)
         return Completable.fromCallable {
             loginDao.insertAndDeleteAll(login)
         }
     }
 
-    override fun getDataFromDb(): Single<List<Login>> {
-        return loginDao.getItems()
+    override fun getDataFromDb(): Single<Login> {
+        return loginDao.getFirst().toSingle()
     }
 }

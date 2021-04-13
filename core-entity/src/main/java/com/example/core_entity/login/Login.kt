@@ -1,9 +1,9 @@
-package com.example.loginfeature.domain
+package com.example.core_entity.login
 
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.loginfeature.domain.Login.Companion.TABLE_NAME
+import com.example.core_entity.login.Login.Companion.TABLE_NAME
 import kotlinx.android.parcel.Parcelize
 
 @Entity(tableName = TABLE_NAME)

@@ -2,7 +2,7 @@ package com.example.core.di
 
 import android.app.Application
 import android.content.Context
-import androidx.room.RoomDatabase
+import com.example.core.RoomDatabase
 import com.example.core.common.SharedPrefs
 import com.example.core.module.CoreModule
 import dagger.Component
@@ -18,15 +18,14 @@ interface CoreComponent {
 
     fun getContext(): Context
 
-    @Named("APP_DATABASE_NAME")
-    fun getDatabaseName(): String
+    fun getApplication(): Application
 
     @Named("BASE_API_URL")
     fun getBaseApiUrl(): String
 
     fun getNetworkService(): Retrofit
 
-    fun getDatabase(): RoomDatabase
+    fun getDatabaseService(): RoomDatabase
 
     fun getSharedPref(): SharedPrefs
 

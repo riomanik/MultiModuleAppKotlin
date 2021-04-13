@@ -3,6 +3,7 @@ package com.example.loginfeature.domain
 import com.example.loginfeature.data.ExampleResponse
 import io.reactivex.Completable
 import io.reactivex.Single
+import com.example.core_entity.login.Login
 
 interface LoginRepository {
 
@@ -12,6 +13,6 @@ interface LoginRepository {
 
     fun saveDataToDb(login: Login): Completable
 
-    fun getDataFromDb(): Single<List<Login>>
+    fun getDataFromDb(): Single<Login>
 
 }
