@@ -39,6 +39,9 @@ dependencies {
     // Dagger
     implementation globalDependencies.daggerImpl
     kapt globalDependencies.daggerKapt
+    kapt globalDependencies.daggerProccesor
+    implementation globalDependencies.daggerAndroid
+    implementation globalDependencies.daggerSupport
 
     // Module
     implementation project(path: coreLibrary.core)

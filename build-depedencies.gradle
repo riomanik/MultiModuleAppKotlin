@@ -45,6 +45,10 @@ ext {
             // Dagger
             daggerImpl                      : "com.google.dagger:dagger:2.27",
             daggerKapt                      : "com.google.dagger:dagger-compiler:2.27",
+            daggerAndroid                   : "com.google.dagger:dagger-android:2.27",
+            daggerSupport                   : "com.google.dagger:dagger-android-support:2.27",
+            daggerProccesor                 : "com.google.dagger:dagger-android-processor:2.27",
+
 
             // Retrofit
             retrofit                        : "com.squareup.retrofit2:retrofit:2.4.0",
