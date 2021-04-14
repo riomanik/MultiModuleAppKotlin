@@ -6,28 +6,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
-        buildConfigField 'int', 'DATABASE_VERSION', '2'
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
-            }
-        }
-
-        sourceSets {
-            androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
-        }
     }
 
     androidExtensions {
@@ -40,51 +23,51 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 }
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    // Common
+    implementation globalDependencies.kotlinStdLib
+    implementation globalDependencies.kotlinCore
+    implementation globalDependencies.appCompact
+    implementation globalDependencies.material
 
-    implementation "com.google.dagger:dagger:2.27"
-    kapt "com.google.dagger:dagger-compiler:2.27"
+    // Test
+    testImplementation globalDependencies.testJunit
+    androidTestImplementation globalDependencies.androidTestJunit
+    androidTestImplementation globalDependencies.androidTestEspresso
+
+    // Dagger
+    implementation globalDependencies.daggerImpl
+    kapt globalDependencies.daggerKapt
 
     // Retrofit
-    implementation "com.squareup.retrofit2:retrofit:2.4.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
-    implementation "com.squareup.okhttp3:logging-interceptor:3.11.0"
+    implementation globalDependencies.retrofit
+    implementation globalDependencies.retrofitConverter
+    implementation globalDependencies.retrofitAdapterRx
 
-    implementation "androidx.room:room-runtime:2.2.6"
-    kapt "androidx.room:room-compiler:2.2.6"
-    implementation "androidx.room:room-rxjava2:2.2.6"
-
-    implementation "androidx.lifecycle:lifecycle-extensions:2.1.0"
+    // OkHttp Loging
+    implementation globalDependencies.okhttpLoging
 
     // Rx
-    implementation "io.reactivex.rxjava2:rxjava:2.2.9"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
-    implementation "com.jakewharton.rxbinding2:rxbinding:2.1.1"
-    implementation "com.jakewharton.rxbinding2:rxbinding-support-v4:2.1.1"
+    implementation globalDependencies.rxJava
+    implementation globalDependencies.rxJavaAndroid
+    implementation globalDependencies.rxBinding
+    implementation globalDependencies.rxBindingSupport
 
+    // Room
+    implementation globalDependencies.roomRuntime
+    implementation globalDependencies.roomRxJava
+    kapt globalDependencies.roomCompilerKapt
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0"
+    // Lifecycle
+    implementation globalDependencies.lifecycleExt
 
-    implementation "com.facebook.stetho:stetho:1.5.0"
+    // Coroutines
+    implementation globalDependencies.coroutines
 
-    implementation project(':core')
-    implementation project(':core-entity')
+    // Module
+    implementation project(path: coreLibrary.core)
+    implementation project(path: coreLibrary.coreEntity)
 }

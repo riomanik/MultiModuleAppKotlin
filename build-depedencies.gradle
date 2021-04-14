@@ -1,0 +1,81 @@
+ext {
+    //==============================================================================================
+    // Versions - Application
+    //==============================================================================================
+    NAV_VERSION                     = "2.1.0"
+
+    //==============================================================================================
+    //
+    //
+    //
+    //
+    //==============================================================================================
+    // SUBMODULES
+    //==============================================================================================
+    modulesFeatures = [
+            splashScreen    : ':splashscreen-feature',
+            featureLogin    : ':login-feature'
+    ]
+
+    coreLibrary = [
+            core            : ':core',
+            coreEntity      : ':core-entity'
+    ]
+
+    //==============================================================================================
+    //
+    //
+    //
+    //
+    //==============================================================================================
+    // Compiles - Application
+    //==============================================================================================
+    globalDependencies = [
+            kotlinStdLib                    : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50",
+            kotlinCore                      : "androidx.core:core-ktx:1.3.2",
+            appCompact                      : "androidx.appcompat:appcompat:1.2.0",
+            material                        : "com.google.android.material:material:1.3.0",
+            constraintlayout                : "androidx.constraintlayout:constraintlayout:2.0.4",
+
+            // Test
+            testJunit                       : "junit:junit:4.13.2",
+            androidTestJunit                : "androidx.test.ext:junit:1.1.2",
+            androidTestEspresso             : "androidx.test.espresso:espresso-core:3.3.0",
+
+            // Dagger
+            daggerImpl                      : "com.google.dagger:dagger:2.27",
+            daggerKapt                      : "com.google.dagger:dagger-compiler:2.27",
+
+            // Retrofit
+            retrofit                        : "com.squareup.retrofit2:retrofit:2.4.0",
+            retrofitConverter               : "com.squareup.retrofit2:converter-gson:2.4.0",
+            retrofitAdapterRx               : "com.squareup.retrofit2:adapter-rxjava2:2.4.0",
+
+            // OkHttp
+            okhttpLoging                    : "com.squareup.okhttp3:logging-interceptor:3.11.0",
+
+            // RxJava
+            rxJava                          : "io.reactivex.rxjava2:rxjava:2.2.9",
+            rxJavaAndroid                   : "io.reactivex.rxjava2:rxandroid:2.1.0",
+            rxBinding                       : "com.jakewharton.rxbinding2:rxbinding:2.1.1",
+            rxBindingSupport                : "com.jakewharton.rxbinding2:rxbinding-support-v4:2.1.1",
+
+            // Room
+            roomRuntime                     : "androidx.room:room-runtime:2.2.6",
+            roomCompilerKapt                : "androidx.room:room-compiler:2.2.6",
+            roomRxJava                      : "androidx.room:room-rxjava2:2.2.6",
+
+            // Lifecycle
+            lifecycleExt                    : "androidx.lifecycle:lifecycle-extensions:2.1.0",
+
+            // Coroutines
+            coroutines                      : "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0",
+
+            // ANDROID ARQ
+            navigationFragment              : "androidx.navigation:navigation-fragment-ktx:$NAV_VERSION",
+            navigationFragmentUi            : "androidx.navigation:navigation-ui-ktx:$NAV_VERSION",
+
+            // Third Party Library
+            scytaleLib                      : "com.yakivmospan:scytale:1.0.1"
+    ]
+}

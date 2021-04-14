@@ -8,7 +8,6 @@ import com.example.loginfeature.R
 import com.example.loginfeature.di.DaggerLoginFeatureComponent
 import com.example.loginfeature.di.LoginFeatureComponent
 import com.example.core_entity.login.Login
-import com.facebook.stetho.Stetho
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity: BaseViewModelActivity<LoginViewModel>() {
@@ -23,7 +22,6 @@ class LoginActivity: BaseViewModelActivity<LoginViewModel>() {
             .coreComponent(InjectUtils.provideCoreComponent(applicationContext))
             .build()
         component.inject(this)
-        Stetho.initializeWithDefaults(this)
         btnGetUserInfo.setOnClickListener{
             viewModel.getUserInfo()
         }
