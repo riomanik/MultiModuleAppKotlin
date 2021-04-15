@@ -4,38 +4,8 @@ plugins {
     id 'kotlin-android-extensions'
     id 'kotlin-kapt'
 }
-
-android {
-    defaultConfig {
-        versionCode 1
-        versionName "1.0"
-        consumerProguardFiles "consumer-rules.pro"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-}
+apply from: "$rootProject.projectDir/scripts/module.gradle"
 
 dependencies {
-
-    // Common
-    implementation globalDependencies.kotlinStdLib
-    implementation globalDependencies.kotlinCore
-    implementation globalDependencies.appCompact
-    implementation globalDependencies.material
-
-    // Test
-    testImplementation globalDependencies.testJunit
-    androidTestImplementation globalDependencies.androidTestJunit
-    androidTestImplementation globalDependencies.androidTestEspresso
-
-    // Room
-    implementation globalDependencies.roomRuntime
-    implementation globalDependencies.roomRxJava
-    kapt globalDependencies.roomCompilerKapt
 
 }

@@ -2,8 +2,6 @@ package com.example.splashscreen_feature.presenter
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.loginfeature.domain.LoginDbUseCase
-import javax.inject.Inject
 
 class SplashScreenViewModelFactory: ViewModelProvider.Factory {
 

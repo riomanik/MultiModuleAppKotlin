@@ -1,0 +1,26 @@
+
+android {
+    compileSdkVersion versions.compile
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField 'String', 'API_BASE_URL', '"https://jsonplaceholder.typicode.com/"'
+        buildConfigField 'int', 'DATABASE_VERSION', '1'
+        buildConfigField 'String', 'DATABASE_NAME', '"lion_parcel_driver_database"'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = versions.jvmTarget
+    }
+
+}

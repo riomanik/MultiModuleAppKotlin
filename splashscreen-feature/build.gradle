@@ -5,57 +5,9 @@ plugins {
     id 'kotlin-android-extensions'
 }
 
-android {
-
-    defaultConfig {
-        versionCode 1
-        versionName "1.0"
-        consumerProguardFiles "consumer-rules.pro"
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-}
+apply from: "$rootProject.projectDir/scripts/module.gradle"
 
 dependencies {
-
-    // Common
-    implementation globalDependencies.kotlinStdLib
-    implementation globalDependencies.kotlinCore
-    implementation globalDependencies.appCompact
-    implementation globalDependencies.material
-
-    // Test
-    testImplementation globalDependencies.testJunit
-    androidTestImplementation globalDependencies.androidTestJunit
-    androidTestImplementation globalDependencies.androidTestEspresso
-
-    // Dagger
-    implementation globalDependencies.daggerImpl
-    kapt globalDependencies.daggerKapt
-
-    // Retrofit
-    implementation globalDependencies.retrofit
-    implementation globalDependencies.retrofitConverter
-    implementation globalDependencies.retrofitAdapterRx
-
-    // OkHttp Loging
-    implementation globalDependencies.okhttpLoging
-
-    // Rx
-    implementation globalDependencies.rxJava
-    implementation globalDependencies.rxJavaAndroid
-    implementation globalDependencies.rxBinding
-    implementation globalDependencies.rxBindingSupport
-
-    // Room
-    implementation globalDependencies.roomRuntime
-    implementation globalDependencies.roomRxJava
-    kapt globalDependencies.roomCompilerKapt
 
     // Lifecycle
     implementation globalDependencies.lifecycleExt
@@ -66,5 +18,4 @@ dependencies {
     // Module
     implementation project(path: coreLibrary.core)
     implementation project(path: coreLibrary.coreEntity)
-    implementation project(path: modulesFeatures.featureLogin)
 }
