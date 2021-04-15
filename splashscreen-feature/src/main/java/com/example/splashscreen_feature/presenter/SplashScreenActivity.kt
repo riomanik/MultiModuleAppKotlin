@@ -3,8 +3,8 @@ package com.example.splashscreen_feature.presenter
 import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import com.example.core.base.BaseViewModelActivity
-import com.example.core.common.ConstantClassName.LOGIN_ACTIVITY
 import com.example.core.di.InjectUtils
+import com.example.loginfeature.presenter.LoginActivity
 import com.example.splashscreen_feature.di.SplashScreenFeatureComponent
 import com.example.splashscreen_feature.R
 import com.example.splashscreen_feature.di.DaggerSplashScreenFeatureComponent
@@ -27,8 +27,7 @@ class SplashScreenActivity: BaseViewModelActivity<SplashScreenViewModel>() {
             .coreComponent(InjectUtils.provideCoreComponent(applicationContext))
             .build()
         component.inject(this)
-        val intent = Intent().setClassName(this, LOGIN_ACTIVITY)
-        startActivity(intent)
+        val intent = Intent(this, LoginActivity::class.java)
         delayJob = GlobalScope.launch {
             delay(3000)
             startActivity(intent)

@@ -22,39 +22,36 @@ class LoginActivity: BaseViewModelActivity<LoginViewModel>() {
             .coreComponent(InjectUtils.provideCoreComponent(applicationContext))
             .build()
         component.inject(this)
-        btn_login.setOnClickListener {
+        btnGetUserInfo.setOnClickListener{
             viewModel.getUserInfo()
         }
-//        btnGetUserInfo.setOnClickListener{
-//            viewModel.getUserInfo()
-//        }
-//        btnGetUserId.setOnClickListener {
-//            viewModel.getUserIdSharePref()
-//        }
-//        btnSaveToDb.setOnClickListener {
-//            viewModel.saveDataToDb(
-//                Login(
-//                    1,
-//                    "Junifer"
-//                )
-//            )
-//        }
-//        btnGetFromDb.setOnClickListener {
-//            viewModel.getDataFromDb()
-//        }
+        btnGetUserId.setOnClickListener {
+            viewModel.getUserIdSharePref()
+        }
+        btnSaveToDb.setOnClickListener {
+            viewModel.saveDataToDb(
+                Login(
+                    1,
+                    "Junifer"
+                )
+            )
+        }
+        btnGetFromDb.setOnClickListener {
+            viewModel.getDataFromDb()
+        }
     }
 
     override fun initLiveDataObservers() {
         super.initLiveDataObservers()
         viewModel.userInfoLiveData.observe(this, SafeObserver{
-//            startActivity()
+            tvUserInfo.text = it.title
         })
-//        viewModel.userIdPrefLiveData.observe(this, SafeObserver{
-//            tvUserIdPref.text = it
-//        })
-//        viewModel.loginDataFromDbLiveData.observe(this, SafeObserver{
-//            tvDataFromDb.text = it.username
-//        })
+        viewModel.userIdPrefLiveData.observe(this, SafeObserver{
+            tvUserIdPref.text = it
+        })
+        viewModel.loginDataFromDbLiveData.observe(this, SafeObserver{
+            tvDataFromDb.text = it.username
+        })
     }
 
     companion object {
