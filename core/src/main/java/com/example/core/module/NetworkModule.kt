@@ -10,7 +10,6 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -23,13 +22,12 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(
-        okHttpClient: OkHttpClient,
-        @Named("BASE_API_URL") baseApiUrl: String
+        okHttpClient: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(Gson()))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .baseUrl(baseApiUrl)
+            .baseUrl(BuildConfig.API_BASE_URL)
             .client(okHttpClient)
             .build()
     }

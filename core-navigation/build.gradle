@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+
+    defaultConfig {
+        versionCode 1
+        versionName "1.0"
+        consumerProguardFiles "consumer-rules.pro"
+        targetSdkVersion 30
+        minSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    // Common
+    implementation globalDependencies.kotlinStdLib
+    implementation globalDependencies.kotlinCore
+    implementation globalDependencies.appCompact
+    implementation globalDependencies.material
+
+    // Test
+    testImplementation globalDependencies.testJunit
+    androidTestImplementation globalDependencies.androidTestJunit
+    androidTestImplementation globalDependencies.androidTestEspresso
+
+    // Dagger
+    implementation globalDependencies.daggerImpl
+    kapt globalDependencies.daggerKapt
+    kapt globalDependencies.daggerProccesor
+    implementation globalDependencies.daggerAndroid
+    implementation globalDependencies.daggerSupport
+
+    // Retrofit
+    implementation globalDependencies.retrofit
+    implementation globalDependencies.retrofitConverter
+    implementation globalDependencies.retrofitAdapterRx
+
+    // OkHttp Loging
+    implementation globalDependencies.okhttpLoging
+
+    // Rx
+    implementation globalDependencies.rxJava
+    implementation globalDependencies.rxJavaAndroid
+    implementation globalDependencies.rxBinding
+    implementation globalDependencies.rxBindingSupport
+
+    // Room
+    implementation globalDependencies.roomRuntime
+    implementation globalDependencies.roomRxJava
+    kapt globalDependencies.roomCompilerKapt
+
+    // third party
+    implementation globalDependencies.scytaleLib
+
+    // Navigation
+    implementation globalDependencies.navigationFragment
+    implementation globalDependencies.navigationFragmentUi
+
+    // Module
+    implementation project(path: coreLibrary.coreEntity)
+
+}

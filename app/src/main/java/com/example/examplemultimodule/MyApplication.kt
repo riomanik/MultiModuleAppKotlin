@@ -1,36 +1,20 @@
 package com.example.examplemultimodule
 
-import android.app.Application
-import com.example.core.di.CoreComponent
-import com.example.core.di.CoreComponentProvider
+import androidx.multidex.MultiDex
 import com.example.core.di.DaggerCoreComponent
-import com.example.core.module.CoreModule
+import com.example.examplemultimodule.app.di.DaggerApplicationComponent
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
 
-class MyApplication : Application(), CoreComponentProvider {
-
-    lateinit var coreComponent: CoreComponent
+class MyApplication : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
-        instance = this
-        coreComponent = DaggerCoreComponent
-            .builder()
-            .coreModule(
-                CoreModule(
-                    this,
-                    BuildConfig.API_BASE_URL
-                )
-            )
-            .build()
-        coreComponent.inject(this)
+        MultiDex.install(this)
+    }
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerApplicationComponent.factory()
+            .create(DaggerCoreComponent.factory().create(this))
     }
 
-    override fun provideCoreComponent(): CoreComponent {
-        return coreComponent
-    }
-
-    companion object {
-        lateinit var instance: MyApplication
-            private set
-    }
 }

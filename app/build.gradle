@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -12,6 +13,8 @@ android {
         versionName "1.0"
         minSdkVersion 19
         targetSdkVersion 30
+
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -43,8 +46,36 @@ dependencies {
     implementation globalDependencies.daggerAndroid
     implementation globalDependencies.daggerSupport
 
+    // Retrofit
+    implementation globalDependencies.retrofit
+    implementation globalDependencies.retrofitConverter
+    implementation globalDependencies.retrofitAdapterRx
+
+    // OkHttp Loging
+    implementation globalDependencies.okhttpLoging
+
+    // Rx
+    implementation globalDependencies.rxJava
+    implementation globalDependencies.rxJavaAndroid
+    implementation globalDependencies.rxBinding
+    implementation globalDependencies.rxBindingSupport
+
+    // Room
+    implementation globalDependencies.roomRuntime
+    implementation globalDependencies.roomRxJava
+    kapt globalDependencies.roomCompilerKapt
+
+    // third party
+    implementation globalDependencies.scytaleLib
+
+    // Navigation
+    implementation globalDependencies.navigationFragment
+    implementation globalDependencies.navigationFragmentUi
+
     // Module
     implementation project(path: coreLibrary.core)
+    implementation project(path: coreLibrary.coreEntity)
+    implementation project(path: coreLibrary.coreNavigation)
     implementation project(path: modulesFeatures.featureLogin)
     implementation project(path: modulesFeatures.splashScreen)
 }

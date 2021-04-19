@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core-entity" />
+            <option value="$PROJECT_DIR$/core-navigation" />
             <option value="$PROJECT_DIR$/login-feature" />
             <option value="$PROJECT_DIR$/splashscreen-feature" />
           </set>

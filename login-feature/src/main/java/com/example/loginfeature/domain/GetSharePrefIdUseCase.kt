@@ -1,7 +1,6 @@
 package com.example.loginfeature.domain
 
 import com.example.core.base.BaseUseCase
-import com.example.loginfeature.data.ExampleResponse
 import io.reactivex.Single
 import javax.inject.Inject
 

@@ -4,13 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.core.base.BaseViewModel
 import com.example.core.common.customSubscribe
+import com.example.core_entity.login.Login
 import com.example.loginfeature.data.ExampleResponse
 import com.example.loginfeature.domain.GetSharePrefIdUseCase
-import com.example.core_entity.login.Login
 import com.example.loginfeature.domain.LoginDbUseCase
 import com.example.loginfeature.domain.LoginUseCase
+import javax.inject.Inject
 
-class LoginViewModel(
+class LoginViewModel @Inject constructor(
     private val getUserInfoUseCase: LoginUseCase,
     private val getSharePrefIdUseCase: GetSharePrefIdUseCase,
     private val loginDbUseCase: LoginDbUseCase

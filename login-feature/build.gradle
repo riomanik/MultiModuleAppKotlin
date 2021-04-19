@@ -11,6 +11,8 @@ android {
         versionCode 1
         versionName "1.0"
         consumerProguardFiles "consumer-rules.pro"
+        targetSdkVersion 30
+        minSdkVersion 19
     }
 
     androidExtensions {
@@ -23,6 +25,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -32,6 +43,8 @@ dependencies {
     implementation globalDependencies.kotlinCore
     implementation globalDependencies.appCompact
     implementation globalDependencies.material
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
 
     // Test
     testImplementation globalDependencies.testJunit
@@ -41,6 +54,9 @@ dependencies {
     // Dagger
     implementation globalDependencies.daggerImpl
     kapt globalDependencies.daggerKapt
+    kapt globalDependencies.daggerProccesor
+    implementation globalDependencies.daggerAndroid
+    implementation globalDependencies.daggerSupport
 
     // Retrofit
     implementation globalDependencies.retrofit
@@ -70,4 +86,5 @@ dependencies {
     // Module
     implementation project(path: coreLibrary.core)
     implementation project(path: coreLibrary.coreEntity)
+    implementation project(path: coreLibrary.coreNavigation)
 }

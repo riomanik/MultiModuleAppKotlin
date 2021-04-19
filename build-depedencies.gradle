@@ -2,7 +2,7 @@ ext {
     //==============================================================================================
     // Versions - Application
     //==============================================================================================
-    NAV_VERSION                     = "2.1.0"
+    NAV_VERSION                     = "2.3.0"
 
     //==============================================================================================
     //
@@ -19,7 +19,8 @@ ext {
 
     coreLibrary = [
             core            : ':core',
-            coreEntity      : ':core-entity'
+            coreEntity      : ':core-entity',
+            coreNavigation  : ':core-navigation'
     ]
 
     //==============================================================================================
@@ -70,7 +71,7 @@ ext {
             roomRxJava                      : "androidx.room:room-rxjava2:2.2.6",
 
             // Lifecycle
-            lifecycleExt                    : "androidx.lifecycle:lifecycle-extensions:2.1.0",
+            lifecycleExt                    : "androidx.lifecycle:lifecycle-extensions:2.2.0",
 
             // Coroutines
             coroutines                      : "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0",
@@ -78,7 +79,6 @@ ext {
             // ANDROID ARQ
             navigationFragment              : "androidx.navigation:navigation-fragment-ktx:$NAV_VERSION",
             navigationFragmentUi            : "androidx.navigation:navigation-ui-ktx:$NAV_VERSION",
-
             // Third Party Library
             scytaleLib                      : "com.yakivmospan:scytale:1.0.1"
     ]

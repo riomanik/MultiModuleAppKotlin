@@ -10,6 +10,8 @@ android {
         versionCode 1
         versionName "1.0"
         consumerProguardFiles "consumer-rules.pro"
+        targetSdkVersion 30
+        minSdkVersion 19
     }
 
     buildTypes {

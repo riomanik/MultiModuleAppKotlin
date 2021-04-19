@@ -2,8 +2,8 @@ package com.example.loginfeature.module
 
 import com.example.core.RoomDatabase
 import com.example.core.common.SharedPrefs
-import com.example.loginfeature.data.LoginApi
 import com.example.core_entity.login.LoginDao
+import com.example.loginfeature.data.LoginApi
 import com.example.loginfeature.data.LoginDataRepository
 import com.example.loginfeature.domain.LoginRepository
 import dagger.Module
