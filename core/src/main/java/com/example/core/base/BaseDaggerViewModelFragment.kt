@@ -1,5 +1,6 @@
 package com.example.core.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,7 @@ import androidx.fragment.app.Fragment
 import io.reactivex.disposables.CompositeDisposable
 
 
-abstract class BaseDaggerFragment : Fragment() {
+abstract class BaseDaggerViewModelFragment: Fragment() {
 
     private lateinit var compositeDisposable: CompositeDisposable
 
@@ -37,5 +38,14 @@ abstract class BaseDaggerFragment : Fragment() {
     @CallSuper
     protected open fun initViews() {
     }
+//
+//    @Inject
+//    lateinit var factory: ViewModelProvider.Factory
 
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+    }
+
+//    override fun androidInjector(): AndroidInjector<Any> = androidInjector
 }

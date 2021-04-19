@@ -2,42 +2,27 @@ package com.example.splashscreen_feature.presenter
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import com.example.core.base.BaseDaggerFragment
+import com.example.core.common.coreComponent
 import com.example.core_navigation.navigation.NavigationFlow
 import com.example.core_navigation.navigation.ToFlowNavigatable
 import com.example.splashscreen_feature.R
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
-import dagger.android.support.AndroidSupportInjection
+import com.example.splashscreen_feature.di.DaggerSplashScreenComponent
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class SplashScreenFragment: Fragment(), HasAndroidInjector {
-
-    @Inject
-    protected lateinit var androidInjector: DispatchingAndroidInjector<Any>
+class SplashScreenFragment: BaseDaggerFragment() {
 
     private var delayJob: Job? = null
 
     override fun onAttach(context: Context) {
-        AndroidSupportInjection.inject(this)
+        DaggerSplashScreenComponent.factory().create(coreComponent()).inject(this)
         super.onAttach(context)
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_splash_screen, container, false)
-    }
+    override fun getContentResource(): Int = R.layout.fragment_splash_screen
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,5 +32,4 @@ class SplashScreenFragment: Fragment(), HasAndroidInjector {
         }
     }
 
-    override fun androidInjector(): AndroidInjector<Any> = androidInjector
 }
