@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
 
 abstract class BaseDaggerViewModelFragment: Fragment() {
@@ -38,14 +40,15 @@ abstract class BaseDaggerViewModelFragment: Fragment() {
     @CallSuper
     protected open fun initViews() {
     }
-//
-//    @Inject
-//    lateinit var factory: ViewModelProvider.Factory
+
+    @Inject
+    lateinit var getContext: Context
+
+    @Inject
+    lateinit var factory: ViewModelProvider.Factory
 
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
-
-//    override fun androidInjector(): AndroidInjector<Any> = androidInjector
 }

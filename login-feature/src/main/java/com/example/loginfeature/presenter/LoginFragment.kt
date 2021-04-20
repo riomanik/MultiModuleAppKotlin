@@ -1,23 +1,20 @@
 package com.example.loginfeature.presenter
 
 import android.content.Context
+import android.view.MenuItem
+import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.example.core.base.BaseDaggerViewModelFragment
 import com.example.core.common.SafeObserver
 import com.example.core.common.coreComponent
 import com.example.core_entity.login.Login
 import com.example.loginfeature.R
 import com.example.loginfeature.di.DaggerLoginComponent
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_login.*
-import javax.inject.Inject
 
 class LoginFragment: BaseDaggerViewModelFragment() {
 
-//    private val viewModel by viewModels<LoginViewModel> { viewModelFactory }
-
-    @Inject
-    lateinit var factory: ViewModelProvider.Factory
     private val viewModel: LoginViewModel by viewModels { factory }
 
     override fun onAttach(context: Context) {
@@ -45,6 +42,27 @@ class LoginFragment: BaseDaggerViewModelFragment() {
         }
         btnGetFromDb.setOnClickListener {
             viewModel.getDataFromDb()
+        }
+        setupBottomNavigation()
+    }
+
+    private fun setupBottomNavigation() {
+        val bottomNavigationView: BottomNavigationView = bottomNavigationView
+        bottomNavigationView.setOnNavigationItemSelectedListener(this::onNavigationItemSelected)
+    }
+
+    private fun onNavigationItemSelected(item: MenuItem): Boolean {
+        toolbar.title = item.titleCondensed
+        return when (item.itemId) {
+            LoginNavBarMenu.HOME.menuRes -> {
+                Toast.makeText(getContext, "HOME", Toast.LENGTH_SHORT).show()
+                true
+            }
+            LoginNavBarMenu.PROFILE.menuRes -> {
+                Toast.makeText(getContext, "PROFILE", Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> return false
         }
     }
 

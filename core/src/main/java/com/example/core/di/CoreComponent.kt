@@ -1,6 +1,7 @@
 package com.example.core.di
 
 import android.app.Application
+import android.content.Context
 import com.example.core.RoomDatabase
 import com.example.core.common.SharedPrefs
 import com.example.core.module.CoreModule
@@ -18,6 +19,8 @@ interface CoreComponent {
     fun getDatabaseService(): RoomDatabase
 
     fun getSharedPref(): SharedPrefs
+
+    fun getContext(): Context
 
     @Component.Factory
     interface Factory {

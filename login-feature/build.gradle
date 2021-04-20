@@ -45,6 +45,7 @@ dependencies {
     implementation globalDependencies.material
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation 'com.google.android.material:material:1.3.0'
 
     // Test
     testImplementation globalDependencies.testJunit
@@ -82,6 +83,9 @@ dependencies {
 
     // Coroutines
     implementation globalDependencies.coroutines
+
+    // design
+    implementation 'com.android.support:design:27.1.1'
 
     // Module
     implementation project(path: coreLibrary.core)
