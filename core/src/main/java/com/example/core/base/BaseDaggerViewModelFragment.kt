@@ -16,6 +16,10 @@ abstract class BaseDaggerViewModelFragment: Fragment() {
 
     private lateinit var compositeDisposable: CompositeDisposable
 
+    protected val initDaggerFragment by lazy { buildDaggerFragment() }
+
+    protected abstract fun buildDaggerFragment()
+
     protected abstract fun getContentResource(): Int
 
     override fun onCreateView(
@@ -49,6 +53,7 @@ abstract class BaseDaggerViewModelFragment: Fragment() {
 
 
     override fun onAttach(context: Context) {
+        initDaggerFragment
         super.onAttach(context)
     }
 }

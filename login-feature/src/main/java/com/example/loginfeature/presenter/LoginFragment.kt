@@ -1,6 +1,5 @@
 package com.example.loginfeature.presenter
 
-import android.content.Context
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -17,9 +16,8 @@ class LoginFragment: BaseDaggerViewModelFragment() {
 
     private val viewModel: LoginViewModel by viewModels { factory }
 
-    override fun onAttach(context: Context) {
+    override fun buildDaggerFragment() {
         DaggerLoginComponent.factory().create(coreComponent()).inject(this)
-        super.onAttach(context)
     }
 
     override fun getContentResource(): Int = R.layout.fragment_login
@@ -43,6 +41,7 @@ class LoginFragment: BaseDaggerViewModelFragment() {
         btnGetFromDb.setOnClickListener {
             viewModel.getDataFromDb()
         }
+        toolbar.title = "HOME"
         setupBottomNavigation()
     }
 

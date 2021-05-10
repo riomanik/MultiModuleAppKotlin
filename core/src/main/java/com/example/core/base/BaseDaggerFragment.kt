@@ -1,5 +1,6 @@
 package com.example.core.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,15 @@ import io.reactivex.disposables.CompositeDisposable
 abstract class BaseDaggerFragment : Fragment() {
 
     private lateinit var compositeDisposable: CompositeDisposable
+
+    protected val initDaggerFragment by lazy { buildDaggerFragment() }
+
+    protected abstract fun buildDaggerFragment()
+
+    override fun onAttach(context: Context) {
+        initDaggerFragment
+        super.onAttach(context)
+    }
 
     protected abstract fun getContentResource(): Int
 

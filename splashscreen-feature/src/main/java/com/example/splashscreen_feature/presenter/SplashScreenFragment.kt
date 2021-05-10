@@ -1,6 +1,5 @@
 package com.example.splashscreen_feature.presenter
 
-import android.content.Context
 import android.os.Bundle
 import com.example.core.base.BaseDaggerFragment
 import com.example.core.common.coreComponent
@@ -17,9 +16,8 @@ class SplashScreenFragment: BaseDaggerFragment() {
 
     private var delayJob: Job? = null
 
-    override fun onAttach(context: Context) {
+    override fun buildDaggerFragment() {
         DaggerSplashScreenComponent.factory().create(coreComponent()).inject(this)
-        super.onAttach(context)
     }
 
     override fun getContentResource(): Int = R.layout.fragment_splash_screen

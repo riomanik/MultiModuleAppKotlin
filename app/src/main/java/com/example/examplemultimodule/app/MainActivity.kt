@@ -21,8 +21,6 @@ class MainActivity: DaggerAppCompatActivity(), ToFlowNavigatable{
         setContentView(R.layout.activity_main)
         val navController = findNavController(R.id.nav_host_fragment)
         navigator.navController = navController
-//        navController = findNavController(R.id.nav_host_fragment)
-//        NavigationUI.setupWithNavController( navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
