@@ -77,6 +77,8 @@ dependencies {
     implementation project(path: coreLibrary.core)
     implementation project(path: coreLibrary.coreEntity)
     implementation project(path: coreLibrary.coreNavigation)
+    implementation project(path: coreLibrary.coreStorage)
     implementation project(path: modulesFeatures.featureLogin)
     implementation project(path: modulesFeatures.splashScreen)
+    implementation project(path: api.api)
 }

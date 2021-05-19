@@ -8,7 +8,7 @@ import java.net.*
 abstract class CustomErrorConsumer : Consumer<Throwable> {
 
     override fun accept(throwable: Throwable) {
-        if (throwable is LionParcelHttpException) {
+        if (throwable is MyCustomHttpException) {
             accept(throwable)
         } else {
             val errorBody = ErrorResponse()
@@ -16,17 +16,17 @@ abstract class CustomErrorConsumer : Consumer<Throwable> {
             errorResponseMessage.en = throwable.message
             errorResponseMessage.id = throwable.message
             errorBody.message = errorResponseMessage
-            accept(createLionParcelException(throwable, errorBody))
+            accept(createMyCustomException(throwable, errorBody))
         }
     }
 
-    private fun createLionParcelException(throwable: Throwable, errorBody: ErrorResponse): LionParcelHttpException {
+    private fun createMyCustomException(throwable: Throwable, errorBody: ErrorResponse): MyCustomHttpException {
         return when(throwable) {
-            is UnknownHostException, is ConnectException, is UnknownServiceException, is SocketException, is IOException -> LionParcelNetWorkException(errorBody)
-            is SocketTimeoutException -> LionParcelTimeoutException(errorBody)
-            else -> LionParcelHttpException(errorBody)
+            is UnknownHostException, is ConnectException, is UnknownServiceException, is SocketException, is IOException -> MyCustomNetWorkException(errorBody)
+            is SocketTimeoutException -> MyCustomTimeoutException(errorBody)
+            else -> MyCustomHttpException(errorBody)
         }
     }
 
-    abstract fun accept(it: LionParcelHttpException)
+    abstract fun accept(it: MyCustomHttpException)
 }

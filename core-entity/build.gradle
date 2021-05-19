@@ -40,4 +40,8 @@ dependencies {
     implementation globalDependencies.roomRxJava
     kapt globalDependencies.roomCompilerKapt
 
+    // Retrofit
+    implementation globalDependencies.retrofit
+    implementation globalDependencies.retrofitConverter
+    implementation globalDependencies.retrofitAdapterRx
 }

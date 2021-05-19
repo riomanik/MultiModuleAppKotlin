@@ -36,7 +36,7 @@ subprojects {
                     testInstrumentationRunner testInstrumentationRunner
                     buildConfigField 'String', 'API_BASE_URL', '"https://jsonplaceholder.typicode.com/"'
                     buildConfigField 'int', 'DATABASE_VERSION', '1'
-                    buildConfigField 'String', 'DATABASE_NAME', '"lion_parcel_driver_database"'
+                    buildConfigField 'String', 'DATABASE_NAME', '"example_multi_module_database"'
                 }
 
                 compileOptions {

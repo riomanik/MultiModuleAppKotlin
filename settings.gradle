@@ -1,7 +1,10 @@
+include ':core-storage'
+include ':feature-home'
 include ':core-navigation'
-include ':splashscreen-feature'
+include ':feature-splashscreen'
 include ':core-entity'
-include ':login-feature'
+include ':feature-login'
 include ':core'
 include ':app'
 rootProject.name = "ExampleMultiModule"
+include ':api'

@@ -13,14 +13,19 @@ ext {
     // SUBMODULES
     //==============================================================================================
     modulesFeatures = [
-            splashScreen    : ':splashscreen-feature',
-            featureLogin    : ':login-feature'
+            splashScreen    : ':feature-splashscreen',
+            featureLogin    : ':feature-login'
+    ]
+
+    api = [
+            api             : ':api'
     ]
 
     coreLibrary = [
             core            : ':core',
             coreEntity      : ':core-entity',
-            coreNavigation  : ':core-navigation'
+            coreNavigation  : ':core-navigation',
+            coreStorage     : ':core-storage'
     ]
 
     //==============================================================================================

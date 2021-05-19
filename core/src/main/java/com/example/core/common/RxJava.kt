@@ -5,11 +5,11 @@ import io.reactivex.Single
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Consumer
 
-fun <T> Single<T>.customSubscribe(success: (T) -> Unit, error: (LionParcelHttpException) -> Unit): Disposable {
+fun <T> Single<T>.customSubscribe(success: (T) -> Unit, error: (MyCustomHttpException) -> Unit): Disposable {
     return this.subscribe(Consumer {
         success(it)
     }, object : CustomErrorConsumer() {
-        override fun accept(it: LionParcelHttpException) {
+        override fun accept(it: MyCustomHttpException) {
             RxErrorHandler.onError(it)
             Log.d(this::class.java.simpleName, it.localizedMessage, it)
             error(it)

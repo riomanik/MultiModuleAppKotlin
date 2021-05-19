@@ -70,6 +70,9 @@ dependencies {
     implementation globalDependencies.navigationFragmentUi
 
     // Module
+    implementation project(path: coreLibrary.core)
     implementation project(path: coreLibrary.coreEntity)
+    implementation project(path: ':feature-splashscreen')
+    implementation project(path: ':feature-login')
 
 }

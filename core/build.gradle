@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -63,6 +64,10 @@ dependencies {
 
     // third party
     implementation globalDependencies.scytaleLib
+
+    // Navigation
+    implementation globalDependencies.navigationFragment
+    implementation globalDependencies.navigationFragmentUi
 
     // Module
     implementation project(path: coreLibrary.coreEntity)
