@@ -1,9 +1,9 @@
 package com.example.api.module
 
-import com.example.api.feature.login.LoginModule
+import com.example.api.feature.login.LoginApiModule
 import dagger.Module
 
 @Module(includes = [
-    LoginModule::class
+    LoginApiModule::class
 ])
 class ApiModule

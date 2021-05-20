@@ -84,6 +84,10 @@ ext {
             // ANDROID ARQ
             navigationFragment              : "androidx.navigation:navigation-fragment-ktx:$NAV_VERSION",
             navigationFragmentUi            : "androidx.navigation:navigation-ui-ktx:$NAV_VERSION",
+
+            // Support Design
+            supportDesign                   : "com.android.support:design:28.0.0",
+
             // Third Party Library
             scytaleLib                      : "com.yakivmospan:scytale:1.0.1"
     ]

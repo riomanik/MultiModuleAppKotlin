@@ -1,7 +1,7 @@
 package com.example.api.feature.login
 
 import com.example.api.feature.login.api.LoginApi
-import com.example.api.feature.login.repository.LoginDataRepository
+import com.example.api.feature.login.repository.LoginDataApiRepository
 import com.example.core_storage.dao.LoginDao
 import com.example.core_storage.module.CoreStorageModule
 import com.example.core_storage.sharedpref.SharedPrefs
@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module(includes = [CoreStorageModule::class])
-class LoginModule {
+class LoginApiModule {
 
     @Singleton
     @Provides
@@ -22,8 +22,8 @@ class LoginModule {
         loginApi: LoginApi,
         sharedPrefs: SharedPrefs,
         loginDao: LoginDao
-    ): LoginRepository {
-        return LoginDataRepository(loginApi, sharedPrefs, loginDao)
+    ): LoginApiRepository {
+        return LoginDataApiRepository(loginApi, sharedPrefs, loginDao)
     }
 
 

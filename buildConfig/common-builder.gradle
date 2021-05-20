@@ -1,0 +1,24 @@
+apply from: "$rootProject.rootDir/buildConfig/common-config.gradle"
+
+dependencies {
+    // Common
+    implementation fileTree(dir: 'libs', includes: ['*.jar'])
+    implementation globalDependencies.kotlinStdLib
+    implementation globalDependencies.kotlinCore
+    implementation globalDependencies.appCompact
+    implementation globalDependencies.material
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    // Test
+    testImplementation globalDependencies.testJunit
+    androidTestImplementation globalDependencies.androidTestJunit
+    androidTestImplementation globalDependencies.androidTestEspresso
+
+    // Dagger
+    implementation globalDependencies.daggerImpl
+    kapt globalDependencies.daggerKapt
+    kapt globalDependencies.daggerProccesor
+    implementation globalDependencies.daggerAndroid
+    implementation globalDependencies.daggerSupport
+}

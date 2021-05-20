@@ -5,7 +5,7 @@ import com.example.entity.login.payload.ExampleResponse
 import io.reactivex.Completable
 import io.reactivex.Single
 
-interface LoginRepository {
+interface LoginApiRepository {
 
     fun getUserInfo(): Single<ExampleResponse>
 

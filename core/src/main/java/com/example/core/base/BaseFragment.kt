@@ -6,17 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.CallSuper
-import androidx.fragment.app.Fragment
-import dagger.android.support.AndroidSupportInjection
+import androidx.lifecycle.ViewModelProvider
+import dagger.android.support.DaggerFragment
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
-abstract class BaseFragment: Fragment() {
+abstract class BaseFragment: DaggerFragment() {
 
     private lateinit var compositeDisposable: CompositeDisposable
-
-    protected abstract val injectedFragment: Fragment
 
     protected abstract fun getContentResource(): Int
 
@@ -25,7 +23,6 @@ abstract class BaseFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        AndroidSupportInjection.inject(injectedFragment)
         compositeDisposable = CompositeDisposable()
         return inflater.inflate(getContentResource(), container, false)
     }
@@ -41,7 +38,8 @@ abstract class BaseFragment: Fragment() {
     @Inject
     lateinit var getContext: Context
 
-    protected open fun initViewModel(): BaseViewModel? = null
+    @Inject
+    lateinit var factory: ViewModelProvider.Factory
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

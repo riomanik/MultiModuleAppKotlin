@@ -1,17 +1,20 @@
 package com.example.api.feature.login.repository
 
-import com.example.api.feature.login.LoginRepository
+import com.example.api.feature.login.LoginApiRepository
+import com.example.api.feature.login.api.LoginApi
+import com.example.core_storage.dao.LoginDao
+import com.example.core_storage.sharedpref.SharedPrefs
 import com.example.entity.login.domain.Login
 import com.example.entity.login.payload.ExampleResponse
 import io.reactivex.Completable
 import io.reactivex.Single
 import javax.inject.Inject
 
-class LoginDataRepository @Inject constructor(
-    private val loginApi: com.example.api.feature.login.api.LoginApi,
-    private val sharedPrefs: com.example.core_storage.sharedpref.SharedPrefs,
-    private val loginDao: com.example.core_storage.dao.LoginDao
-): LoginRepository {
+class LoginDataApiRepository @Inject constructor(
+    private val loginApi: LoginApi,
+    private val sharedPrefs: SharedPrefs,
+    private val loginDao: LoginDao
+): LoginApiRepository {
 
     override fun getUserInfo(): Single<ExampleResponse> {
         return loginApi.getUserInfo().doOnSuccess {

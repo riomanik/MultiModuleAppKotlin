@@ -7,8 +7,6 @@ class NavControllerBinder @Inject constructor() {
 
     var navController: NavController? = null
 
-    var needReset: Boolean = false
-
     fun bind(navController: NavController){
         this.navController = navController
     }
