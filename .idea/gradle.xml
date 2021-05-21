@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/core-entity" />
             <option value="$PROJECT_DIR$/core-navigation" />
             <option value="$PROJECT_DIR$/core-storage" />
+            <option value="$PROJECT_DIR$/feature-account" />
             <option value="$PROJECT_DIR$/feature-home" />
             <option value="$PROJECT_DIR$/feature-login" />
             <option value="$PROJECT_DIR$/feature-splashscreen" />

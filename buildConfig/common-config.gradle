@@ -2,7 +2,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-
 android {
     compileSdkVersion 30
     buildToolsVersion '30.0.3'
@@ -26,6 +25,7 @@ android {
 
         vectorDrawables.useSupportLibrary true
         multiDexEnabled true
+
     }
 
 }
