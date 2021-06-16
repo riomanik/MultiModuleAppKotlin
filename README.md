@@ -35,7 +35,7 @@ so let continue ->
 Modules are collection of source files and build settings that allow you to divide a project into discrete units of functionality. In this case apart from dividing by functionality/responsibility, existing the following dependence between them:
 
 <p align="center">
- <img src="screenshots/architecture/diagram_communication_modules.png">
+ <img src="screenshoot/module.png">
 </p>
 
 The above graph shows the app modularisation:
@@ -48,7 +48,17 @@ The above graph shows the app modularisation:
 -   `:api` will provide call network request or storage request, this module will 1 on 1 with core-storage
 -   `:features` this is place feature was created
 
-### Design 
+### [Design Architecture](https://drive.google.com/file/d/1-CjV67drwM1VndNJ-_k-1OUEAK13ct2c/view?usp=sharing)
+
+<p align="center">
+ <img src="screenshoot/Design.png">
+</p>
+
+### [Dagger Graph](https://drive.google.com/file/d/1-CjV67drwM1VndNJ-_k-1OUEAK13ct2c/view?usp=sharing)
+
+<p align="center">
+ <img src="screenshoot/graph.png">
+</p>
 
 ## Tech-stack
 
